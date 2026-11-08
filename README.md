@@ -20,3 +20,13 @@ This is a static site: no build command and no environment variables are require
 
 ## Important platform note
 This prototype uses YouTube embeds and links to YouTube search. It does not guarantee that every video can be embedded or that ads will appear on every playback. Follow YouTube API Services Terms and Developer Policies if adding YouTube Data API features later.
+
+
+## Private access (Vercel)
+To make this owner-only, enable Vercel Authentication for **All Deployments** in Project → Security → Deployment Protection. On the current Vercel offering this can protect production on the Free plan; grant access only to your own Vercel account. A front-end PIN is intentionally not used because it would not secure the actual site.
+
+## Vercel Web Analytics
+The static Vercel Insights script is included in `index.html`. In the Vercel project dashboard, open **Analytics** and enable **Web Analytics**, then redeploy. Analytics can report visits, pages, referrers, countries, devices and browsers in aggregate; it cannot identify individual WhatsApp status viewers or reveal who viewed a WhatsApp status. It only measures people who click through to DaizFi.Space.
+
+## Audiomack
+The page accepts official Audiomack embed URLs copied from Audiomack's share/embed controls. It does not scrape Audiomack or extract audio. See [Audiomack's creator information](https://creators.audiomack.com/about) for its embeddable player details.
