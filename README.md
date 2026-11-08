@@ -1,32 +1,33 @@
 # DaizFi.Space
 
-A lightweight, mobile-first music discovery MVP. The interface lets people explore music categories, search YouTube, and play a selected YouTube video inside the official embedded player.
+A lightweight, mobile-first music discovery experience. The public website lets visitors explore music categories and search YouTube. A private owner gateway unlocks the personal YouTube and Audiomack embed controls.
 
-## MVP features
-- Responsive dark interface with DaizFi.Space branding
-- Genre discovery shortcuts
-- YouTube search handoff
-- Paste a YouTube URL or 11-character video ID to play
-- Embedded YouTube player; playback, availability and ads remain controlled by YouTube
-- No audio downloading, extraction, proxying or separate audio hosting
+## Public and owner modes
+- Public visitors can open the site, browse discovery categories and search YouTube.
+- Only a visitor with the private gateway phrase can unlock owner playback controls.
+- The gateway phrase is checked by a Vercel serverless function; it is not stored in browser code.
+- Successful login creates a signed, HTTP-only, Secure, SameSite=Strict cookie.
+- Owner sessions expire after seven days; use **Owner mode · Sign out** to end a session.
+- This is a single-owner gateway, not a multi-user account or admin dashboard.
 
-## Run locally
-Open `index.html` in a browser, or serve the repository root with any static web server.
+## Environment variables (Vercel)
+Set both variables in Project → Settings → Environment Variables, for Production (and Preview/Development only if needed):
+- `DAIZFI_GATEWAY_PHRASE`: your private login phrase. Use a long, unique phrase and do not paste it into GitHub or public chat.
+- `DAIZFI_SESSION_SECRET`: a cryptographically random secret of at least 32 characters. Generate with `openssl rand -hex 32`.
+
+Redeploy after adding or changing environment variables. Without both values configured, the gateway will not unlock.
+
+## Paparazzi / audience insights
+The Vercel Web Analytics script is included in `index.html`. Enable Web Analytics in the Vercel project dashboard → Analytics, then redeploy. After owner sign-in, the **Paparazzi · Audience pulse** shortcut opens the Vercel dashboard.
+
+Analytics can show aggregate visits, page views, referrers, countries, devices and browsers. It does not identify individual visitors or reveal WhatsApp Status viewers. It measures traffic that actually visits DaizFi.Space.
+
+## Music embeds
+- YouTube playback uses the official embedded player. YouTube controls playback availability and ads.
+- Audiomack links are converted to the official embedded player URL. Audiomack controls availability and playback.
+- The site does not download, extract, proxy or separately host music audio.
 
 ## Deploy
-This is a static site: no build command and no environment variables are required.
-- Vercel: import this repository; set Framework Preset to **Other**, Build Command empty, Output Directory `.`.
-- GitHub Pages: Settings → Pages → Deploy from a branch → `main` → `/ (root)`.
-
-## Important platform note
-This prototype uses YouTube embeds and links to YouTube search. It does not guarantee that every video can be embedded or that ads will appear on every playback. Follow YouTube API Services Terms and Developer Policies if adding YouTube Data API features later.
-
-
-## Private access (Vercel)
-To make this owner-only, enable Vercel Authentication for **All Deployments** in Project → Security → Deployment Protection. On the current Vercel offering this can protect production on the Free plan; grant access only to your own Vercel account. A front-end PIN is intentionally not used because it would not secure the actual site.
-
-## Vercel Web Analytics
-The static Vercel Insights script is included in `index.html`. In the Vercel project dashboard, open **Analytics** and enable **Web Analytics**, then redeploy. Analytics can report visits, pages, referrers, countries, devices and browsers in aggregate; it cannot identify individual WhatsApp status viewers or reveal who viewed a WhatsApp status. It only measures people who click through to DaizFi.Space.
-
-## Audiomack
-The page accepts official Audiomack embed URLs copied from Audiomack's share/embed controls. It does not scrape Audiomack or extract audio. See [Audiomack's creator information](https://creators.audiomack.com/about) for its embeddable player details.
+This is a static front end with Vercel serverless API functions under `api/`.
+- Vercel: import this repository; use Framework Preset **Other**, leave Build Command empty, and set Output Directory to `.`.
+- Ensure the `api/` directory is included in the deployment so the owner gateway endpoints are available.
