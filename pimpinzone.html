@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050807">
+<meta name="description" content="PimpinZone — Autonomous Creator Content Sync & Intelligent Briefing System. Async creator operations powered by DaizLab Intent Engine / PidGinYor IR.">
+<title>PimpinZone — Autonomous Creator Content Sync</title>
+<style>
+:root{color-scheme:dark;--bg:#050807;--panel:#0b1210;--panel2:#0f1915;--line:#1d3028;--muted:#8b9c94;--white:#f4f8f6;--green:#20e17c;--gold:#f4c542;--cyan:#65e8ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 75% -5%,#17472b 0,transparent 34%),radial-gradient(circle at 10% 35%,#12333b 0,transparent 25%),linear-gradient(180deg,#050807,#030605 70%,#050807);color:var(--white);font:14px/1.6 Inter,system-ui,sans-serif}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+nav{position:sticky;top:0;z-index:30;height:66px;padding:0 24px;border-bottom:1px solid #16251f;background:#050807df;backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between}.brand{font-weight:950;letter-spacing:-.5px}.brand span{color:var(--green)}.navlinks{display:flex;gap:20px;color:#91a39b;font-size:11px}.navlinks a:hover{color:white}.badge{border:1px solid #28553d;border-radius:999px;padding:7px 11px;color:#9bf2ba;font-size:9px;font-weight:900;letter-spacing:1.5px}
+.hero{max-width:1180px;margin:auto;padding:92px 24px 75px}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #28553d;background:#08140f;border-radius:999px;padding:7px 11px;color:#9bf2ba;font-size:9px;font-weight:950;letter-spacing:1.6px}.dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 16px var(--green)}h1{font-size:clamp(48px,9vw,106px);line-height:.84;letter-spacing:-7px;margin:24px 0 22px;max-width:1000px}.green{color:var(--green)}.gold{color:var(--gold)}.cyan{color:var(--cyan)}.hero p{max-width:720px;color:#a9b8b2;font-size:17px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.primary,.secondary{border-radius:10px;padding:12px 16px}.primary{border:0;background:linear-gradient(110deg,var(--green),#b6e85a);color:#061009;font-weight:950}.secondary{border:1px solid #2a4237;background:#0a120f;color:white}.wrap{max-width:1180px;margin:auto;padding:0 24px 100px}.section{padding:70px 0;border-top:1px solid #13221c}.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:24px}.kicker{font-size:9px;font-weight:950;letter-spacing:1.8px;color:var(--green)}h2{font-size:clamp(32px,6vw,66px);line-height:.9;letter-spacing:-4px;margin:7px 0}.muted{color:var(--muted)}.philosophy{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{background:linear-gradient(145deg,#0c1611,#070d0a);border:1px solid var(--line);border-radius:19px;padding:22px}.card h3{margin:5px 0 8px;font-size:20px}.num{font-size:30px;font-weight:950;color:var(--green)}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:14px}.role{border:1px solid var(--line);border-radius:22px;padding:26px;background:linear-gradient(145deg,#0b1511,#070c09)}.role .tag{display:inline-block;border:1px solid #294b3a;border-radius:999px;padding:5px 9px;color:#9beab8;font-size:9px;font-weight:900;letter-spacing:1px}.role h3{font-size:29px;margin:14px 0 4px}.role ul{padding-left:19px;color:#aab8b2}.role li{margin:7px 0}
+.features{display:grid;gap:12px}.feature{display:grid;grid-template-columns:70px 1fr auto;gap:18px;align-items:start;border:1px solid var(--line);border-radius:19px;padding:21px;background:#09110d}.feature .n{font-weight:950;font-size:22px;color:var(--gold)}.feature h3{margin:0 0 4px;font-size:19px}.feature p{margin:0;color:#91a39b}.status{font-size:9px;border:1px solid #294b3a;border-radius:999px;padding:5px 8px;color:#9beab8;white-space:nowrap}
+.arch{border:1px solid #204c3a;border-radius:25px;padding:28px;background:radial-gradient(circle at 80% 10%,#123e2a,#07100c 55%)}pre{white-space:pre-wrap;overflow:auto;color:#b9f2ce;font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;margin:0}
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}.node{border:1px solid #254236;border-radius:14px;padding:15px;background:#07100c;text-align:center}.node b{display:block;color:var(--green);font-size:10px}.node span{display:block;color:#81958c;font-size:10px;margin-top:4px}
+.brief{display:grid;grid-template-columns:1fr 1fr;gap:14px}.briefbox{border:1px solid var(--line);border-radius:21px;padding:24px;background:#09110d}.briefbox h3{margin-top:0}.param{display:flex;justify-content:space-between;gap:15px;border-bottom:1px solid #182820;padding:10px 0}.param span{color:var(--muted)}.param b{color:#dce8e2;text-align:right}.cta{margin-top:30px;border:1px solid #28553d;border-radius:24px;padding:30px;background:linear-gradient(120deg,#0b1912,#07100d)}footer{border-top:1px solid #13221c;padding:28px 24px;text-align:center;color:#63756d;font-size:10px}
+@media(max-width:760px){.navlinks{display:none}.hero{padding:70px 18px 55px}.wrap{padding:0 18px 70px}h1{letter-spacing:-5px}.section{padding:50px 0}.philosophy,.roles,.brief{grid-template-columns:1fr}.feature{grid-template-columns:45px 1fr}.feature .status{grid-column:2}.pipeline{grid-template-columns:1fr 1fr}.section-head{display:block}}
+</style></head>
+<body>
+<nav><a class="brand" href="/">◆ DaizFi<span>.Space</span></a><div class="navlinks"><a href="#vision">Vision</a><a href="#roles">Roles</a><a href="#features">Engine</a><a href="#architecture">Architecture</a><a href="#roadmap">Roadmap</a></div><a class="badge" href="/command-center.html">DAIZFI COMMAND ↗</a></nav>
+<main>
+<section class="hero"><div class="eyebrow"><span class="dot"></span>PIMPINZONE · ASYNC CREATOR ENGINE</div>
+<h1>DROP THE MEDIA.<br><span class="green">GET THE BRIEF.</span></h1>
+<p>Autonomous Creator Content Sync & Intelligent Briefing System — a discreet asynchronous operating layer for creators, managers and digital sales systems. Built around DaizLab Intent Engine / PidGinYor IR.</p>
+<div class="actions"><a class="primary" href="#features">Explore the Engine ↓</a><a class="secondary" href="#architecture">View Architecture</a></div>
+<p class="muted" style="font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-top:24px">Systems over hustle · Zero-Latency Intent Architecture · Time-zone decoupled</p>
+</section>
+<div class="wrap">
+<section class="section" id="vision"><div class="section-head"><div><div class="kicker">01 · VISION & CORE PHILOSOPHY</div><h2>Content operations<br><span class="gold">without the waiting.</span></h2></div><div class="muted">Draft specification · V1</div></div>
+<div class="philosophy">
+<div class="card"><div class="num">01</div><h3>Systems Over Hustle</h3><p class="muted">Zero manual back-and-forth messaging across mismatched time zones. The workflow carries intent forward.</p></div>
+<div class="card"><div class="num">02</div><h3>Zero-Latency Intent Architecture</h3><p class="muted">Raw visual assets enter asynchronously; the engine evaluates context and returns structured next-action parameters.</p></div>
+<div class="card"><div class="num">03</div><h3>Discreet Operational Compliance</h3><p class="muted">Access isolation, encrypted vault storage, expiring media URLs and rule-based workflow logic form the operational guardrails.</p></div>
+</div></section>
+
+<section class="section" id="roles"><div class="section-head"><div><div class="kicker">02 · USER ROLES</div><h2>Two surfaces.<br><span class="cyan">One async loop.</span></h2></div></div>
+<div class="roles">
+<div class="role"><span class="tag">CREATOR · UPLOAD TIER</span><h3>Drop media anytime.</h3><p class="muted">A simplified Web/Mobile Vault Ingestion Portal lets creators upload without waiting for a manager to come online.</p><ul><li>Batch media ingestion</li><li>Immediate confirmation state</li><li>Automated brief delivery</li><li>Physical Record vs AI Generation execution</li></ul></div>
+<div class="role"><span class="tag">SYSTEM LEAD · ARCHITECT</span><h3>Review when ready.</h3><p class="muted">A centralized DaizLab Engine dashboard provides asynchronous audit, prompt-rule configuration and workflow oversight.</p><ul><li>Media queue and status control</li><li>Prompt / brief rule configuration</li><li>Schedule and pipeline monitoring</li><li>Pricing and tier configuration</li></ul></div>
+</div></section>
+
+<section class="section" id="features"><div class="section-head"><div><div class="kicker">03 · CORE FUNCTIONAL REQUIREMENTS</div><h2>The engine<br><span class="green">runs in sequence.</span></h2></div></div>
+<div class="features">
+<div class="feature"><div class="n">01</div><div><h3>Asynchronous Media Vault Ingestion</h3><p>High-resolution JPEG, PNG, HEIC, MP4 and MOV uploads; direct-to-cloud encrypted storage; automatic timestamp, timezone, file-spec and aspect-ratio metadata.</p></div><span class="status">R2 / S3</span></div>
+<div class="feature"><div class="n">02</div><div><h3>Content Queue & Audit Engine</h3><p>Grid-style review queue sorted by recency and category with Pending Review, Approved for Distribution, Needs Revision and Brief Triggered states.</p></div><span class="status">ASYNC REVIEW</span></div>
+<div class="feature"><div class="n">03</div><div><h3>AI Brief & Parameter Generator</h3><p>Recent uploads plus schedule logic become concise execution parameters: lighting, angle, aesthetic, pose, content pillar, hook, caption context and tier classification.</p></div><span class="status">PIDGINYOR IR</span></div>
+<div class="feature"><div class="n">04</div><div><h3>Monetization & Ledger Tracking</h3><p>Multi-currency creator ledger with EVM-compatible wallet mapping and USDC settlement tracking for creator payouts and system operations.</p></div><span class="status">USDC / EVM</span></div>
+</div>
+</section>
+
+<section class="section" id="architecture"><div class="section-head"><div><div class="kicker">04 · TECHNICAL ARCHITECTURE</div><h2>Intent enters.<br><span class="gold">Action exits.</span></h2></div></div>
+<div class="arch"><pre>[ CREATOR INGESTION PORTAL ]
+          │
+          ▼  Async Upload · R2 / S3
+[ DAIZLAB INTENT ENGINE / STORAGE VAULT ]
+          │
+          ├──────► [ ARCHITECT AUDIT DASHBOARD ]
+          │
+          ▼
+[ PIDGINYOR IR BRIEFING PIPELINE ]
+          │
+          ▼
+[ AI BRIEF · PHYSICAL SHOT / AI PROMPT ]
+          │
+          ▼
+[ AUTOMATED CREATOR OUTPUT BRIEF ]</pre>
+<div class="pipeline"><div class="node"><b>NEXT.JS</b><span>App Router · Tailwind · Framer Motion · Lucide</span></div><div class="node"><b>SUPABASE</b><span>PostgreSQL · access controls · workflow data</span></div><div class="node"><b>R2 / S3</b><span>Encrypted media vault · signed URLs</span></div><div class="node"><b>VERCEL</b><span>Serverless execution · async delivery</span></div></div>
+</div></section>
+
+<section class="section"><div class="section-head"><div><div class="kicker">05 · BRIEF OUTPUT CONTRACT</div><h2>What the creator<br><span class="cyan">receives next.</span></h2></div></div>
+<div class="brief">
+<div class="briefbox"><h3>Execution Vector</h3><div class="param"><span>Mode</span><b>Physical Recording / AI Generation</b></div><div class="param"><span>Format / Style</span><b>Lighting · Camera · Aesthetic · Pose</b></div><div class="param"><span>Content Pillar</span><b>Hook · Caption Context · Tier</b></div><div class="param"><span>Trigger</span><b>Upload + Schedule Context</b></div></div>
+<div class="briefbox"><h3>Delivery</h3><div class="param"><span>Primary</span><b>Creator Brief Portal</b></div><div class="param"><span>Notification</span><b>WhatsApp / Telegram / Push</b></div><div class="param"><span>Timing</span><b>Asynchronous · No live handoff</b></div><div class="param"><span>Security</span><b>Private · Expiring Media Access</b></div></div>
+</div>
+</section>
+
+<section class="section" id="roadmap"><div class="section-head"><div><div class="kicker">06 · IMPLEMENTATION ROADMAP</div><h2>Build the loop.<br><span class="green">Then automate it.</span></h2></div></div>
+<div class="features">
+<div class="feature"><div class="n">01</div><div><h3>Media Ingestion Portal</h3><p>Async upload UI + encrypted vault + USDC wallet settlement interface.</p></div><span class="status">PHASE 1</span></div>
+<div class="feature"><div class="n">02</div><div><h3>Manager Audit Dashboard</h3><p>Streamlined media queue view + asynchronous status tagger.</p></div><span class="status">PHASE 2</span></div>
+<div class="feature"><div class="n">03</div><div><h3>Intelligent Brief Generator</h3><p>Automated prompt/brief engine suggesting the next content execution: Record vs AI Gen.</p></div><span class="status">PHASE 3</span></div>
+<div class="feature"><div class="n">04</div><div><h3>Full DaizLab Ecosystem Integration</h3><p>End-to-end zero-latency intent pipeline deployment across the DaizLab operating layer.</p></div><span class="status">PHASE 4</span></div>
+</div>
+<div class="cta"><div class="kicker">PIMPINZONE · SYSTEM SPEC</div><h2 style="font-size:38px;margin-bottom:8px">The creator doesn't wait for the architect.</h2><p class="muted">The creator drops intent. The system stores it, routes it, evaluates it and prepares the next move. Human review remains available where the workflow requires it.</p><a class="primary" href="/command-center.html">Return to DaizFi Command ↗</a></div>
+</section>
+</div></main>
+<footer>◆ DaizFi.Space · PimpinZone · Autonomous Creator Content Sync & Intelligent Briefing System<br>Powered by DaizLab Intent Engine / PidGinYor IR · Draft / Specification</footer>
+</body></html>
