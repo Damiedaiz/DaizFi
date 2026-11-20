@@ -7,6 +7,18 @@
     {
       "source": "/this",
       "destination": "/this.html"
+    },
+    {
+      "source": "/this/better-question",
+      "destination": "/this-better-question.html"
+    },
+    {
+      "source": "/this/working-system",
+      "destination": "/this-working-system.html"
+    },
+    {
+      "source": "/this/bridge",
+      "destination": "/this-bridge.html"
     }
   ]
 }
