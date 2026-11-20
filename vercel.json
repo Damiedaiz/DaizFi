@@ -1,5 +1,12 @@
 {
   "rewrites": [
-    { "source": "/pimpinzone", "destination": "/pimpinzone.html" }
+    {
+      "source": "/pimpinzone",
+      "destination": "/pimpinzone.html"
+    },
+    {
+      "source": "/this",
+      "destination": "/this.html"
+    }
   ]
 }
